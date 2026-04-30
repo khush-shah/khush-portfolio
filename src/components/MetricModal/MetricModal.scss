@@ -8,7 +8,7 @@
 
 .mm {
   background: rgba(9,14,26,0.99); border:1px solid rgba(77,166,255,0.22);
-  border-radius: 16px; padding: 36px; max-width: 560px; width: 90%;
+  border-radius: 16px; padding: clamp(20px, 5vw, 36px); max-width: 560px; width: 95%;
   box-shadow: 0 32px 80px rgba(0,0,0,0.85);
   position: relative;
   animation: mmIn 0.3s cubic-bezier(0.16,1,0.3,1) both;
@@ -23,10 +23,16 @@
   &:hover { background:rgba(255,71,87,0.15); border-color:rgba(255,71,87,0.3); color:var(--red); }
 }
 
-.mm__big   { font-family:var(--display); font-size:54px; font-weight:800; line-height:1; color:var(--blue); }
+.mm__big   { font-family:var(--display); font-size: clamp(32px, 8vw, 54px); font-weight:800; line-height:1; color:var(--blue); }
 .mm__title { font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.15em; margin-bottom:24px; margin-top:2px; }
 
-.mm__compare { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px; }
+.mm__compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+  @media (max-width: 480px) { grid-template-columns: 1fr; }
+}
 .mm__col {
   background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:10px; padding:16px;
   &--before .mm__col-val { color:var(--red); }

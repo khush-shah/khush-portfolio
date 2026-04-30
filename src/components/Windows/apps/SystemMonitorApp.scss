@@ -20,13 +20,17 @@
   &__proc-label { font-size:10px; color:var(--text3); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:8px; }
   &__procs { border:1px solid var(--border); border-radius:8px; overflow:hidden; }
   &__proc-head {
-    display:grid; grid-template-columns:50px 1fr 60px 70px 80px;
+    display:grid;
+    grid-template-columns:50px 1fr 60px 70px 80px;
+    @media (max-width:500px) { grid-template-columns:1fr 50px 60px; }
     padding:7px 12px; background:rgba(77,166,255,0.04);
     border-bottom:1px solid var(--border);
     font-size:9px; color:var(--text3); letter-spacing:0.1em; text-transform:uppercase;
   }
   &__proc {
-    display:grid; grid-template-columns:50px 1fr 60px 70px 80px;
+    display:grid;
+    grid-template-columns:50px 1fr 60px 70px 80px;
+    @media (max-width:500px) { grid-template-columns:1fr 50px 60px; }
     padding:8px 12px; font-size:11px; color:var(--text2);
     border-bottom:1px solid rgba(255,255,255,0.02);
     transition:background 0.15s;
@@ -39,4 +43,10 @@
     &--running  { background:rgba(61,255,122,0.08); color:var(--green); }
     &--sleeping { background:rgba(255,255,255,0.05); color:var(--text3); }
   }
+}
+
+@media (max-width: 500px) {
+  .sysmon__proc-pid,
+  .sysmon__proc-mem { display: none; }
+  .sysmon__gauges { grid-template-columns: 1fr 1fr; }
 }

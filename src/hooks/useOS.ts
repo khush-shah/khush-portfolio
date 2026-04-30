@@ -35,9 +35,10 @@ export function useOS() {
       const offset = (prev.filter(w => !w.minimized).length % 8) * 30;
       return [...prev, {
         id, z: ++zCounter,
-        x: Math.min(100 + offset, window.innerWidth - cfg.w - 60),
-        y: Math.min(60 + offset, window.innerHeight - cfg.h - 80),
-        w: cfg.w, h: cfg.h,
+        x: window.innerWidth < 768 ? 0 : Math.min(100 + offset, window.innerWidth - cfg.w - 60),
+        y: window.innerWidth < 768 ? 0 : Math.min(60 + offset, window.innerHeight - cfg.h - 80),
+        w: Math.min(cfg.w, window.innerWidth - 16),
+        h: Math.min(cfg.h, window.innerHeight - 64),
         minimized: false, maximized: false,
       }];
     });

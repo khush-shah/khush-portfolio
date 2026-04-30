@@ -67,10 +67,12 @@ export default function Window({ win, children, onClose, onMinimize, onMaximize,
 
   if (win.minimized) return null;
 
-  const style: React.CSSProperties = win.maximized ? {
+  const isMobile = window.innerWidth < 768;
+  const style: React.CSSProperties = (win.maximized || isMobile) ? {
     position: 'fixed', left: 0, top: 0,
     width: '100vw', height: 'calc(100vh - 48px)',
-    zIndex: win.z, borderRadius: 0, transition: 'all 0.3s cubic-bezier(0.16,1,0.3,1)',
+    zIndex: win.z, borderRadius: 0,
+    transition: 'all 0.3s cubic-bezier(0.16,1,0.3,1)',
   } : {
     position: 'fixed',
     left: win.x, top: win.y,
@@ -110,7 +112,7 @@ export default function Window({ win, children, onClose, onMinimize, onMaximize,
       <div className="window__body">{children}</div>
 
       {/* Resize */}
-      {!win.maximized && <div className="window__resize" onMouseDown={startResize} />}
+      {!win.maximized && !isMobile && <div className="window__resize" onMouseDown={startResize} />}
     </div>
   );
 }

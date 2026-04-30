@@ -16,9 +16,9 @@
   top: 50%; left: 50%; transform: translate(-50%,-50%);
   border: 1px solid;
 }
-.login__ring--1 { width:400px; height:400px; border-color:rgba(77,166,255,0.08); animation:ring 4s ease-in-out infinite; }
-.login__ring--2 { width:600px; height:600px; border-color:rgba(192,132,252,0.05); animation:ring 4s ease-in-out 1.2s infinite; }
-.login__ring--3 { width:840px; height:840px; border-color:rgba(0,229,255,0.03); animation:ring 4s ease-in-out 2.4s infinite; }
+.login__ring--1 { width: min(400px, 90vw); height: min(400px, 90vw); border-color:rgba(77,166,255,0.08); animation:ring 4s ease-in-out infinite; }
+.login__ring--2 { width: min(600px, 120vw); height: min(600px, 120vw); border-color:rgba(192,132,252,0.05); animation:ring 4s ease-in-out 1.2s infinite; }
+.login__ring--3 { width: min(840px, 150vw); height: min(840px, 150vw); border-color:rgba(0,229,255,0.03); animation:ring 4s ease-in-out 2.4s infinite; }
 @keyframes ring {
   0%,100% { transform:translate(-50%,-50%) scale(1); opacity:0.5; }
   50%      { transform:translate(-50%,-50%) scale(1.05); opacity:1; }
@@ -44,7 +44,7 @@
   50%      { transform:translateY(-7px); }
 }
 
-.login__name    { font-family:var(--display); font-size:34px; font-weight:800; color:var(--bright); letter-spacing:-0.02em; }
+.login__name    { font-family:var(--display); font-size: clamp(22px, 6vw, 34px); font-weight:800; color:var(--bright); letter-spacing:-0.02em; }
 .login__role    { font-size:13px; color:var(--blue); letter-spacing:0.1em; text-transform:uppercase; }
 .login__company { font-size:12px; color:var(--text2); margin-bottom:10px; }
 
@@ -71,4 +71,8 @@
   display: flex; gap: 10px; align-items: center;
   font-size:11px; color:var(--text3); letter-spacing:0.08em;
   animation: loginIn 0.8s var(--ease) 0.6s both;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
+  text-align: center;
 }

@@ -19,3 +19,11 @@
   &__metric { font-size:10px; padding:2px 7px; background:rgba(255,184,48,0.07); border:1px solid rgba(255,184,48,0.15); border-radius:4px; color:var(--amber); display:inline-block; margin:1px 2px 0 0; }
   &__tag { font-size:10px; padding:2px 6px; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:3px; color:var(--text3); margin:1px 2px 0 0; display:inline-block; }
 }
+
+@media (max-width: 600px) {
+  .proj-app__table th:nth-child(3),
+  .proj-app__table td:nth-child(3),
+  .proj-app__table th:nth-child(5),
+  .proj-app__table td:nth-child(5) { display: none; }
+  .proj-app__desc { max-width: 160px; }
+}
