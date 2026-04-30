@@ -1,0 +1,83 @@
+.metrics-app {
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.metrics-app__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.metrics-app__card {
+  background: rgba(77,166,255,0.06);
+  border: 1px solid rgba(77,166,255,0.14);
+  border-radius: 10px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.metrics-app__card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, #4da6ff, #c084fc);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.metrics-app__card:hover { background: rgba(77,166,255,0.11); transform: translateY(-2px); border-color: rgba(77,166,255,0.28); }
+.metrics-app__card:hover::before { transform: scaleX(1); }
+
+.metrics-app__val  { font-family: var(--display); font-size: 32px; font-weight: 800; line-height: 1; }
+.metrics-app__sfx  { font-size: 0.5em; vertical-align: super; }
+.metrics-app__label{ font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 5px; }
+.metrics-app__bar  { height: 2px; background: rgba(255,255,255,0.05); border-radius: 1px; overflow: hidden; margin-top: 10px; }
+.metrics-app__fill { height: 100%; border-radius: 1px; transition: width 1.4s cubic-bezier(0.16,1,0.3,1); }
+.metrics-app__hint { font-size: 10px; color: var(--blue); opacity: 0; transition: opacity 0.2s; margin-top: 4px; }
+.metrics-app__card:hover .metrics-app__hint { opacity: 1; }
+
+.metrics-app__section {
+  font-size: 10px; color: var(--text3); text-transform: uppercase;
+  letter-spacing: 0.12em; margin-bottom: 8px;
+}
+
+.metrics-app__pipeline {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 2px; margin-bottom: 4px;
+}
+.metrics-app__node {
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  font-size: 11px; color: var(--text2);
+  border-radius: 6px; transition: all 0.25s; white-space: nowrap;
+}
+.metrics-app__node.active {
+  background: rgba(77,166,255,0.1); border-color: rgba(77,166,255,0.35);
+  color: var(--blue); box-shadow: 0 0 10px rgba(77,166,255,0.12);
+}
+.metrics-app__node.warn { border-color: rgba(255,182,39,0.3); color: var(--amber); }
+.metrics-app__arrow { color: var(--text3); padding: 0 4px; font-size: 11px; }
+.metrics-app__pipe-note { font-size: 10px; color: var(--text3); text-align: right; margin-bottom: 12px; }
+
+.metrics-app__graph {
+  height: 56px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--border);
+  border-radius: 6px; overflow: hidden; margin-bottom: 10px;
+}
+
+.metrics-app__sim {
+  width: 100%; padding: 9px;
+  background: rgba(255,69,96,0.06);
+  border: 1px solid rgba(255,69,96,0.2);
+  border-radius: 8px; color: var(--red);
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  cursor: pointer; transition: all 0.2s;
+}
+.metrics-app__sim:hover { background: rgba(255,69,96,0.12); }
+.metrics-app__sim.active { animation: simPulse 1.5s ease-in-out infinite; color: var(--amber); border-color: rgba(255,182,39,0.3); background: rgba(255,182,39,0.06); }
+@keyframes simPulse { 0%,100%{opacity:1} 50%{opacity:0.65} }

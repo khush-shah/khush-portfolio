@@ -1,0 +1,18 @@
+.contact-app {
+  padding: 28px; height: 100%; overflow: auto;
+  &__heading { font-family:var(--display); font-size:26px; font-weight:800; color:var(--bright); letter-spacing:-0.02em; margin-bottom:8px; }
+  &__sub { font-size:13px; color:var(--text2); line-height:1.7; margin-bottom:24px; }
+  &__links { display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
+  &__link {
+    display:flex; align-items:center; gap:14px; padding:14px 18px;
+    background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:10px;
+    text-decoration:none; color:inherit; transition:all 0.2s;
+    &:hover { background:var(--blue-dim); border-color:var(--border2); transform:translateX(4px); }
+    &:hover .contact-app__link-arrow { transform:translateX(4px); color:var(--blue); }
+  }
+  &__link-icon { font-size:20px; width:36px; height:36px; background:rgba(255,255,255,0.05); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  &__link-label { font-size:10px; color:var(--text3); text-transform:uppercase; letter-spacing:0.08em; }
+  &__link-val { font-size:13px; color:var(--text); font-weight:500; margin-top:1px; }
+  &__link-arrow { margin-left:auto; color:var(--text3); font-size:16px; transition:all 0.2s; }
+  &__note { padding:14px 16px; background:rgba(255,184,48,0.05); border:1px solid rgba(255,184,48,0.15); border-left:3px solid var(--amber); border-radius:8px; font-size:12px; color:var(--text2); line-height:1.6; strong{color:var(--amber);} }
+}

@@ -1,0 +1,48 @@
+.cmd-palette-bg {
+  position: fixed; inset: 0; z-index: 4000;
+  background: rgba(0,0,0,0.65); backdrop-filter: blur(12px);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 14vh;
+  animation: cmdBgIn 0.2s ease both;
+}
+@keyframes cmdBgIn { from { opacity:0; } to { opacity:1; } }
+
+.cmd-palette {
+  width: min(580px, 90vw);
+  background: rgba(9,14,26,0.99);
+  border: 1px solid rgba(77,166,255,0.22);
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.04), 0 0 60px rgba(77,166,255,0.06);
+  animation: cmdIn 0.25s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes cmdIn { from { transform:translateY(-20px) scale(0.96); opacity:0; } to { transform:none; opacity:1; } }
+
+.cmd-palette__search {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 18px; border-bottom: 1px solid rgba(77,166,255,0.1);
+}
+.cmd-palette__icon { color: var(--blue); font-size: 15px; flex-shrink: 0; }
+.cmd-palette__input {
+  flex: 1; background: none; border: none; outline: none;
+  font-family: var(--mono); font-size: 14px; color: var(--bright); caret-color: var(--green);
+  &::placeholder { color: var(--text3); }
+}
+.cmd-palette__esc { font-size: 10px; color: var(--text3); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 2px 6px; }
+
+.cmd-palette__list { max-height: 320px; overflow-y: auto; padding: 4px; }
+.cmd-palette__item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 14px; border-radius: 8px; cursor: pointer; transition: background 0.1s;
+  &--sel { background: rgba(77,166,255,0.1); }
+  &:hover { background: rgba(77,166,255,0.08); }
+}
+.cmd-palette__item-icon  { font-size: 15px; width: 22px; text-align: center; flex-shrink: 0; }
+.cmd-palette__item-label { font-size: 13px; color: var(--text); flex: 1; }
+.cmd-palette__item-cat   { font-size: 10px; color: var(--text3); letter-spacing: 0.06em; }
+.cmd-palette__empty { padding: 20px; text-align: center; font-size: 13px; color: var(--text3); }
+
+.cmd-palette__footer {
+  padding: 9px 18px; border-top: 1px solid rgba(77,166,255,0.08);
+  display: flex; gap: 16px; font-size: 10px; color: var(--text3);
+  kbd { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 3px; padding: 1px 5px; font-size: 9px; font-family: var(--mono); }
+}
