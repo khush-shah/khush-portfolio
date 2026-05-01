@@ -76,6 +76,7 @@
   flex: 1;
   overflow: auto;
   position: relative;
+  min-height: 0;
 }
 .window__body::-webkit-scrollbar { width: 4px; }
 .window__body::-webkit-scrollbar-track { background: transparent; }
