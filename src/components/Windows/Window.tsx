@@ -1,4 +1,4 @@
-import { useRef, useCallback, type ReactNode } from 'react';
+import { useRef, useCallback, useState, useEffect, type ReactNode } from 'react';
 import type { AppId, WindowState } from '../../types';
 import { APP_CONFIGS } from '../../data/portfolio';
 import './Window.scss';
@@ -67,7 +67,12 @@ export default function Window({ win, children, onClose, onMinimize, onMaximize,
 
   if (win.minimized) return null;
 
-  const isMobile = window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
   const style: React.CSSProperties = (win.maximized || isMobile) ? {
     position: 'fixed', left: 0, top: 0,
     width: '100vw', height: 'calc(100vh - 48px)',

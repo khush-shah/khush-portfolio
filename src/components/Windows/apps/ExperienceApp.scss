@@ -30,4 +30,9 @@
   .lvl-sys  { background: rgba(189,147,249,0.1); color: var(--purple); }
 
   &__msg { color: var(--text2); flex: 1; strong { color: var(--text); } }
+
+  @media (max-width: 400px) {
+    &__ts { display: none; }
+    &__line { padding: 3px 10px; }
+  }
 }

@@ -32,7 +32,7 @@
 .metrics-app__card:hover { background: rgba(77,166,255,0.11); transform: translateY(-2px); border-color: rgba(77,166,255,0.28); }
 .metrics-app__card:hover::before { transform: scaleX(1); }
 
-.metrics-app__val  { font-family: var(--display); font-size: 32px; font-weight: 800; line-height: 1; }
+.metrics-app__val  { font-family: var(--display); font-size: clamp(22px, 4vw, 32px); font-weight: 800; line-height: 1; }
 .metrics-app__sfx  { font-size: 0.5em; vertical-align: super; }
 .metrics-app__label{ font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 5px; }
 .metrics-app__bar  { height: 2px; background: rgba(255,255,255,0.05); border-radius: 1px; overflow: hidden; margin-top: 10px; }

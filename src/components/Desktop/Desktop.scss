@@ -7,6 +7,10 @@
 .desktop__icons {
   position: absolute; top: 16px; left: 10px;
   display: flex; flex-direction: column; gap: 4px;
+  max-height: calc(100% - 16px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
 }
 
 @media (max-width: 767px) {

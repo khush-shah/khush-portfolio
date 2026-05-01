@@ -1,5 +1,5 @@
 .contact-app {
-  padding: 28px; height: 100%; overflow: auto;
+  padding: clamp(16px, 4vw, 28px); height: 100%; overflow: auto;
   &__heading { font-family:var(--display); font-size:26px; font-weight:800; color:var(--bright); letter-spacing:-0.02em; margin-bottom:8px; }
   &__sub { font-size:13px; color:var(--text2); line-height:1.7; margin-bottom:24px; }
   &__links { display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }

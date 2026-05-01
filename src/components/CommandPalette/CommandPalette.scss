@@ -2,7 +2,9 @@
   position: fixed; inset: 0; z-index: 4000;
   background: rgba(0,0,0,0.65); backdrop-filter: blur(12px);
   display: flex; align-items: flex-start; justify-content: center;
-  padding-top: 14vh;
+  padding-top: min(14vh, 60px);
+  padding-left: 12px;
+  padding-right: 12px;
   animation: cmdBgIn 0.2s ease both;
 }
 @keyframes cmdBgIn { from { opacity:0; } to { opacity:1; } }
@@ -29,7 +31,7 @@
 }
 .cmd-palette__esc { font-size: 10px; color: var(--text3); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 2px 6px; }
 
-.cmd-palette__list { max-height: 320px; overflow-y: auto; padding: 4px; }
+.cmd-palette__list { max-height: min(320px, 50vh); overflow-y: auto; padding: 4px; }
 .cmd-palette__item {
   display: flex; align-items: center; gap: 12px;
   padding: 10px 14px; border-radius: 8px; cursor: pointer; transition: background 0.1s;

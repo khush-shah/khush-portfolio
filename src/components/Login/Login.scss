@@ -50,7 +50,7 @@
 
 .login__btn {
   display: flex; align-items: center; gap: 10px;
-  padding: 13px 40px; border-radius: 100px; margin-top: 6px;
+  padding: 12px clamp(20px, 8vw, 40px); border-radius: 100px; margin-top: 6px;
   background: rgba(77,166,255,0.1);
   border: 1px solid rgba(77,166,255,0.3);
   color: var(--blue); font-size: 14px; letter-spacing: 0.08em;

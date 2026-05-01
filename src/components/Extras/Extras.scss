@@ -90,7 +90,7 @@
   text-shadow: 0 0 40px rgba(77,166,255,0.3);
 }
 .screensaver__date {
-  font-family: var(--mono); font-size: 16px;
+  font-family: var(--mono); font-size: clamp(12px, 3vw, 16px);
   color: rgba(255,255,255,0.35); letter-spacing: 0.06em; margin-top: 16px;
 }
 .screensaver__name {
@@ -108,7 +108,7 @@
 /* ── Sticky Notes ── */
 .sticky-note {
   position: fixed; z-index: 200;
-  width: 200px; min-height: 140px;
+  width: min(200px, 85vw); min-height: 140px;
   border-radius: 4px;
   box-shadow: 3px 4px 16px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.1);
   display: flex; flex-direction: column;
