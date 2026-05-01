@@ -9,20 +9,20 @@ export interface AppConfig {
 }
 
 export const APP_CONFIGS: Record<AppId, AppConfig> = {
-  sysmon:     { title: 'sysmon.exe — System Monitor',           icon: '📡', w: 620, h: 540, bg: 'linear-gradient(135deg,#0a2a1a,#0a1a2a)' },
-  about:      { title: 'about.exe — Khush Shah',          icon: '👤', w: 620, h: 540, bg: 'linear-gradient(135deg,#1e3a5f,#2d5986)' },
-  projects:   { title: 'projects.db — 4 records',          icon: '📦', w: 780, h: 520, bg: 'linear-gradient(135deg,#1a3a2a,#25543c)' },
-  skills:     { title: 'skills.sys — Stack Profile',        icon: '⚡', w: 600, h: 560, bg: 'linear-gradient(135deg,#2e1a4a,#4a2a7a)' },
-  experience: { title: 'experience.log — System Journal',   icon: '📋', w: 700, h: 520, bg: 'linear-gradient(135deg,#3a2a0a,#5a4010)' },
-  metrics:    { title: 'metrics.sh — Live Dashboard',       icon: '📊', w: 640, h: 580, bg: 'linear-gradient(135deg,#1a2a4a,#243c6a)' },
-  terminal:   { title: 'terminal.app — khush@kushOS:~',     icon: '⌨️', w: 700, h: 460, bg: 'linear-gradient(135deg,#0a140a,#0e200e)' },
-  contact:    { title: 'contact.cfg — Get In Touch',        icon: '✉️', w: 580, h: 500, bg: 'linear-gradient(135deg,#3a1a2a,#5a2840)' },
+  sysmon:     { title: 'sysmon.exe - System Monitor',           icon: '📡', w: 620, h: 540, bg: 'linear-gradient(135deg,#0a2a1a,#0a1a2a)' },
+  about:      { title: 'about.exe - Khush Shah',          icon: '👤', w: 620, h: 540, bg: 'linear-gradient(135deg,#1e3a5f,#2d5986)' },
+  projects:   { title: 'projects.db - 4 records',          icon: '📦', w: 780, h: 520, bg: 'linear-gradient(135deg,#1a3a2a,#25543c)' },
+  skills:     { title: 'skills.sys - Stack Profile',        icon: '⚡', w: 600, h: 560, bg: 'linear-gradient(135deg,#2e1a4a,#4a2a7a)' },
+  experience: { title: 'experience.log - System Journal',   icon: '📋', w: 700, h: 520, bg: 'linear-gradient(135deg,#3a2a0a,#5a4010)' },
+  metrics:    { title: 'metrics.sh - Live Dashboard',       icon: '📊', w: 640, h: 580, bg: 'linear-gradient(135deg,#1a2a4a,#243c6a)' },
+  terminal:   { title: 'terminal.app - khush@kushOS:~',     icon: '⌨️', w: 700, h: 460, bg: 'linear-gradient(135deg,#0a140a,#0e200e)' },
+  contact:    { title: 'contact.cfg - Get In Touch',        icon: '✉️', w: 580, h: 500, bg: 'linear-gradient(135deg,#3a1a2a,#5a2840)' },
 };
 
 export const BOOT_LINES = [
-  { t: 0,    text: 'KhushOS BIOS v2.1 — Copyright 2025 Khush Shah Systems', type: '' },
+  { t: 0,    text: 'KhushOS BIOS v2.1 - Copyright 2025 Khush Shah Systems', type: '' },
   { t: 100,  text: 'CPU: Khush Shah 3.4GHz Backend-Optimized Processor', type: '' },
-  { t: 180,  text: 'RAM: 8192MB DDR4 — Dual Channel', type: '' },
+  { t: 180,  text: 'RAM: 8192MB DDR4 - Dual Channel', type: '' },
   { t: 260,  text: 'Detecting storage...', type: '' },
   { t: 340,  text: '  /dev/sda: projects.db [48GB]', type: 'ok' },
   { t: 400,  text: '  /dev/npm: evital-sso@latest', type: 'ok' },
@@ -44,19 +44,19 @@ export const BOOT_LINES = [
 
 export const PROJECTS = [
   {
-    id: '001', title: 'PillO — Medicine Delivery', type: 'B2C · Production', badge: 'prod',
+    id: '001', title: 'PillO - Medicine Delivery', type: 'B2C · Production', badge: 'prod',
     desc: 'Notification engine that reactivated 19K dormant users (8K→31K, ×3.4). BullMQ retry queues, dead-letter handling, cron reconciliation across 1,200+ daily events.',
     metrics: ['31K users', '98% delivery', '80% ↓ failures', '~30% fewer tickets'],
     tags: ['Node.js', 'BullMQ', 'Redis', 'Socket.io', 'PostgreSQL', 'OneSignal'],
   },
   {
-    id: '002', title: 'eVitalRx — Chemist ERP/CRM', type: 'B2B · Production', badge: 'prod',
+    id: '002', title: 'eVitalRx - Chemist ERP/CRM', type: 'B2B · Production', badge: 'prod',
     desc: 'API p95 latency cut 40% across 12+ endpoints. Composite indexing, cursor pagination, multi-layer Redis caching eliminated N+1 queries under concurrent load.',
     metrics: ['40% faster p95', '4K+ auth/mo', '3 integrators', 'Days→Hours'],
     tags: ['Node.js', 'PostgreSQL', 'Redis', 'JWT/SSO', 'Angular'],
   },
   {
-    id: '003', title: 'EngageRx — Marketing Automation', type: 'B2B · Greenfield', badge: 'green',
+    id: '003', title: 'EngageRx - Marketing Automation', type: 'B2B · Greenfield', badge: 'green',
     desc: 'Modular microservices for campaign creation, segmentation, engagement tracking. BigQuery + Firebase analytics pipeline for real-time dashboards.',
     metrics: ['4 hrs/wk saved', 'Real-time CTR', 'Independent deploys'],
     tags: ['Microservices', 'Firebase', 'BigQuery', 'Angular', 'Node.js'],
@@ -77,20 +77,20 @@ export const SKILLS = {
 };
 
 export const EXPERIENCE_LOG = [
-  { ts:'2024-07', lvl:'SYS', msg:'Software Engineer (SDE-1) — Equality Healthcare Pvt. Ltd., Ahmedabad' },
+  { ts:'2024-07', lvl:'SYS', msg:'Software Engineer (SDE-1) - Equality Healthcare Pvt. Ltd., Ahmedabad' },
   { ts:'2024-08', lvl:'OK',  msg:'Reactivated 19K dormant users (8K → 31K, ~3.4×) via multi-channel notification engine' },
-  { ts:'2024-09', lvl:'OK',  msg:'Cut webhook partner failure rate 80% — BullMQ retry queues + dead-letter + cron reconciliation' },
-  { ts:'2024-10', lvl:'OK',  msg:'Reduced API p95 latency 40% across 12+ endpoints — composite indexing + cursor pagination + Redis' },
-  { ts:'2024-11', lvl:'OK',  msg:'Built evital-sso npm module — 4K+ monthly requests, adopted by 3 external integrators' },
+  { ts:'2024-09', lvl:'OK',  msg:'Cut webhook partner failure rate 80% - BullMQ retry queues + dead-letter + cron reconciliation' },
+  { ts:'2024-10', lvl:'OK',  msg:'Reduced API p95 latency 40% across 12+ endpoints - composite indexing + cursor pagination + Redis' },
+  { ts:'2024-11', lvl:'OK',  msg:'Built evital-sso npm module - 4K+ monthly requests, adopted by 3 external integrators' },
   { ts:'2024-12', lvl:'OK',  msg:'Integrated Orange Health & Sterling Accuris lab APIs with Socket.io real-time updates (~30% fewer tickets)' },
-  { ts:'2025-01', lvl:'OK',  msg:'Built EngageRx microservices: campaign creation, segmentation, BigQuery analytics — 4 hrs/wk saved' },
-  { ts:'2025-10', lvl:'WARN', msg:'🏆 Employee of the Month — Oct 2025 (PillO Labs integrations and notification reliability)' },
+  { ts:'2025-01', lvl:'OK',  msg:'Built EngageRx microservices: campaign creation, segmentation, BigQuery analytics - 4 hrs/wk saved' },
+  { ts:'2025-10', lvl:'WARN', msg:'🏆 Employee of the Month - Oct 2025 (PillO Labs integrations and notification reliability)' },
   { ts:'', lvl:'', msg:'' },
-  { ts:'2022-06', lvl:'SYS', msg:'M.Sc. Computer Science & IT — Jain (Deemed-to-be) University, Bengaluru (2022–2024)' },
+  { ts:'2022-06', lvl:'SYS', msg:'M.Sc. Computer Science & IT - Jain (Deemed-to-be) University, Bengaluru (2022–2024)' },
   { ts:'2024-05', lvl:'OK',  msg:'🥇 Gold Medalist · CGPA 9.52/10 · Dean\'s List all semesters' },
   { ts:'2024-04', lvl:'INFO', msg:'Patent filed: IoT-Based Chewing Gum Collector' },
   { ts:'', lvl:'', msg:'' },
-  { ts:'2019-06', lvl:'SYS', msg:'B.Sc. Computer Applications & IT — Indus University, Ahmedabad (2019–2022)' },
+  { ts:'2019-06', lvl:'SYS', msg:'B.Sc. Computer Applications & IT - Indus University, Ahmedabad (2019–2022)' },
   { ts:'2022-05', lvl:'OK',  msg:'🥇 Gold Medalist · CGPA 9.97/10 · University Top Ranker' },
 ];
 
@@ -99,17 +99,17 @@ export const METRIC_MODALS = {
     big:'31K+', title:'Users Reactivated',
     before:{val:'8,000',bar:26}, after:{val:'31,000',bar:100},
     techniques:[
-      {h:'Multi-channel Notification Engine',b:'OneSignal push + WhatsApp Business API + email — all triggered from a single event-driven orchestrator.'},
+      {h:'Multi-channel Notification Engine',b:'OneSignal push + WhatsApp Business API + email - all triggered from a single event-driven orchestrator.'},
       {h:'Abandoned-cart Retargeting',b:'BullMQ delayed jobs fire re-engagement messages at 24h and 72h intervals post-abandonment.'},
-      {h:'Event-driven Architecture',b:'User actions emit events consumed by the notification service — decoupled, scalable, observable.'},
+      {h:'Event-driven Architecture',b:'User actions emit events consumed by the notification service - decoupled, scalable, observable.'},
     ],
   },
   latency: {
     big:'−40%', title:'API p95 Latency Reduction',
     before:{val:'~620ms',bar:100}, after:{val:'~370ms',bar:60},
     techniques:[
-      {h:'Composite Indexing',b:'Multi-column indexes on high-cardinality query patterns — eliminated seq scans on 100K+ row tables across 12+ endpoints.'},
-      {h:'Cursor-based Pagination',b:'Replaced OFFSET with keyset/cursor pagination — O(1) vs O(n) at depth. Critical under concurrent load.'},
+      {h:'Composite Indexing',b:'Multi-column indexes on high-cardinality query patterns - eliminated seq scans on 100K+ row tables across 12+ endpoints.'},
+      {h:'Cursor-based Pagination',b:'Replaced OFFSET with keyset/cursor pagination - O(1) vs O(n) at depth. Critical under concurrent load.'},
       {h:'Multi-layer Redis Caching',b:'L1: in-process LRU. L2: Redis TTL. L3: DB. Cache-aside eliminated N+1 queries entirely.'},
     ],
   },
@@ -117,8 +117,8 @@ export const METRIC_MODALS = {
     big:'98%', title:'Notification Delivery Rate',
     before:{val:'~74%',bar:74}, after:{val:'98%',bar:100},
     techniques:[
-      {h:'Exponential Backoff Retry',b:'Failed deliveries re-queued with jittered backoff — prevents thundering herd on provider outages.'},
-      {h:'Dead-letter Queue',b:'Permanently failed messages go to DLQ for manual review/replay — nothing silently dropped.'},
+      {h:'Exponential Backoff Retry',b:'Failed deliveries re-queued with jittered backoff - prevents thundering herd on provider outages.'},
+      {h:'Dead-letter Queue',b:'Permanently failed messages go to DLQ for manual review/replay - nothing silently dropped.'},
       {h:'Per-channel Error Logging',b:'Structured failure logging per channel (push/WhatsApp/email) enables per-provider SLA tracking.'},
     ],
   },
@@ -127,8 +127,8 @@ export const METRIC_MODALS = {
     before:{val:'High fail',bar:100}, after:{val:'−80% drop',bar:20},
     techniques:[
       {h:'BullMQ Retry Queues',b:'1,200+ daily order events processed through Bull queues with configurable retry attempts and backoff.'},
-      {h:'Cron Reconciliation',b:'Hourly cron compares partner state vs local state — auto-heals divergences without manual intervention.'},
-      {h:'Dead-letter Handling',b:'Exhausted retry messages in DLQ with full context — enables root-cause analysis and replay.'},
+      {h:'Cron Reconciliation',b:'Hourly cron compares partner state vs local state - auto-heals divergences without manual intervention.'},
+      {h:'Dead-letter Handling',b:'Exhausted retry messages in DLQ with full context - enables root-cause analysis and replay.'},
     ],
   },
   auth: {
@@ -136,7 +136,7 @@ export const METRIC_MODALS = {
     before:{val:'Days setup',bar:100}, after:{val:'<30 min',bar:5},
     techniques:[
       {h:'Stateless JWT Auth',b:'Access + refresh token pair. Short-lived access tokens, rotating refresh tokens stored server-side.'},
-      {h:'RBAC Middleware',b:'Role-based access control as Express middleware — plug-and-play, declarative, testable.'},
+      {h:'RBAC Middleware',b:'Role-based access control as Express middleware - plug-and-play, declarative, testable.'},
       {h:'Plug-and-play Design',b:'3 external integrators onboarded. npm published. Any Node.js service integrates in under 30 minutes.'},
     ],
   },

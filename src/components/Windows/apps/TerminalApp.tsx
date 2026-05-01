@@ -209,21 +209,21 @@ export default function TerminalApp({ openApp }: { openApp: (id: string) => void
 
     if (cmd === 'konami') {
       print([
-        { text: '⬆⬆⬇⬇⬅➡⬅➡ B A — code accepted', color: '#ffb627' },
+        { text: '⬆⬆⬇⬇⬅➡⬅➡ B A - code accepted', color: '#ffb627' },
         { text: 'Easter egg found! 🎉', color: '#3dff7a' },
         { text: 'You now know I hide things in production too.', color: '#566a85' },
       ]); return;
     }
 
     if (cmd === 'sudo') {
-      print([{ text: "sudo: nice try — you don't have root access here 😄", color: '#ff4560' }]); return;
+      print([{ text: "sudo: nice try - you don't have root access here 😄", color: '#ff4560' }]); return;
     }
 
     if (cmd === 'vim' || cmd === 'nano' || cmd === 'emacs') {
-      print([{ text: `${cmd}: too powerful for this terminal (just kidding — try 'cat resume.txt')`, color: '#ffb627' }]); return;
+      print([{ text: `${cmd}: too powerful for this terminal (just kidding - try 'cat resume.txt')`, color: '#ffb627' }]); return;
     }
 
-    print([{ text: `command not found: ${trimmed} — try 'help'`, color: '#ff4560' }]);
+    print([{ text: `command not found: ${trimmed} - try 'help'`, color: '#ff4560' }]);
   }, [print, openApp, scrollBottom]);
 
   const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {

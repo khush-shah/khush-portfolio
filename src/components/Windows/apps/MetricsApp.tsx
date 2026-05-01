@@ -151,7 +151,7 @@ export default function MetricsApp({ openModal }: Props) {
         className={`metrics-app__sim${loadHigh ? ' active' : ''}`}
         onClick={triggerLoad}
       >
-        {loadHigh ? '■ Stop simulation — system adapting…' : '▶ Simulate High Load'}
+        {loadHigh ? '■ Stop simulation - system adapting…' : '▶ Simulate High Load'}
       </button>
     </div>
   );

@@ -1,4 +1,4 @@
-# KhushOS — Portfolio
+# KhushOS - Portfolio
 
 A fake operating system portfolio. Boots like BIOS, has a desktop with draggable windows, a working terminal, live metrics, and a command palette.
 
@@ -21,9 +21,9 @@ npm run build
 
 ---
 
-## Deploy Free — 3 Options
+## Deploy Free - 3 Options
 
-### 1. Vercel (Recommended — 2 min)
+### 1. Vercel (Recommended - 2 min)
 
 ```bash
 # Install Vercel CLI
@@ -105,7 +105,7 @@ git push -u origin main
 | Desktop | 7 draggable, resizable windows |
 | Terminal | `help`, `neofetch`, `cat resume.txt`, `ping linkedin`, `projects --all` |
 | Metrics dashboard | Live counters + animated pipeline + load simulator |
-| Command palette | Press `~` — fuzzy search all actions |
+| Command palette | Press `~` - fuzzy search all actions |
 | Metric modals | Click any stat → before/after deep dive |
 | Konami code | ↑↑↓↓←→←→BA → easter egg |
 
@@ -113,4 +113,4 @@ git push -u origin main
 
 ## Update Content
 
-All content lives in `src/data/portfolio.ts` — edit projects, skills, experience, metrics there.
+All content lives in `src/data/portfolio.ts` - edit projects, skills, experience, metrics there.

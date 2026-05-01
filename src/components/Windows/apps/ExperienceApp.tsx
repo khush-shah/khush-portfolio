@@ -18,7 +18,7 @@ export default function ExperienceApp() {
 
   return (
     <div className="exp-app">
-      <div className="exp-app__header">// experience.log — sorted by timestamp</div>
+      <div className="exp-app__header">// experience.log - sorted by timestamp</div>
       {EXPERIENCE_LOG.slice(0, shown).map((e, i) => {
         if (!e.ts) return <div key={i} style={{ height: 10 }} />;
         return (

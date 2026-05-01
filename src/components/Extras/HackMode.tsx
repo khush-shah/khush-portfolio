@@ -13,7 +13,7 @@ const HACK_LINES = [
   'Establishing reverse shell on :4444',
   'rm -rf /* ... just kidding 😄',
   'This is Khush Shah\'s portfolio, not a real hack.',
-  'But seriously — hire this guy.',
+  'But seriously - hire this guy.',
 ];
 
 export default function HackMode({ active, onExit }: Props) {

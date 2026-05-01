@@ -46,7 +46,7 @@ export default function App() {
 
   useEffect(() => { phaseRef.current = os.phase; }, [os.phase]);
 
-  // stable resetIdle — never recreated
+  // stable resetIdle - never recreated
   const resetIdle = useCallback(() => {
     // wake screensaver if it's on
     if (screensaverRef.current) {
@@ -134,7 +134,7 @@ export default function App() {
 
   const handleLogin = useCallback(() => {
     os.setPhase('desktop');
-    setTimeout(() => os.showNotif('👋', 'Welcome back, Khush!', 'KhushOS v1.0 — All systems nominal'), 700);
+    setTimeout(() => os.showNotif('👋', 'Welcome back, Khush!', 'KhushOS v1.0 - All systems nominal'), 700);
     setTimeout(() => os.showNotif('💡', 'Tip', 'Press ~ for command palette · type "matrix" in terminal'), 3200);
     setTimeout(() => os.showNotif('🖥️', 'Quick Start', 'Double-click any desktop icon to open an app'), 6000);
   }, [os]);
@@ -189,9 +189,9 @@ export default function App() {
   };
 
   const CTX_ITEMS = [
-    { icon:'📝', label:'New Sticky Note — Yellow', action: () => addStickyNote(STICKY_COLORS[0]) },
-    { icon:'📝', label:'New Sticky Note — Blue',   action: () => addStickyNote(STICKY_COLORS[2]) },
-    { icon:'📝', label:'New Sticky Note — Pink',   action: () => addStickyNote(STICKY_COLORS[3]) },
+    { icon:'📝', label:'New Sticky Note - Yellow', action: () => addStickyNote(STICKY_COLORS[0]) },
+    { icon:'📝', label:'New Sticky Note - Blue',   action: () => addStickyNote(STICKY_COLORS[2]) },
+    { icon:'📝', label:'New Sticky Note - Pink',   action: () => addStickyNote(STICKY_COLORS[3]) },
     null,
     { icon:'📡', label:'System Monitor',  action: () => os.openApp('sysmon')     },
     { icon:'⌨️', label:'New Terminal',    action: () => os.openApp('terminal')   },

@@ -25,7 +25,7 @@ export default function AboutApp({ openModal }: Props) {
       <p className="about-app__bio">
         Backend-focused engineer with ~1.11 years of <strong>production experience</strong> building systems that handle
         real users, real data, and real failure modes. Focus:{' '}
-        <strong>fault tolerance, observability, async pipelines</strong> — not code that works on localhost,
+        <strong>fault tolerance, observability, async pipelines</strong> - not code that works on localhost,
         but code that <strong>stays up at 3am</strong>.
       </p>
       <div className="about-app__stats">
