@@ -31,7 +31,7 @@ export default function Desktop({ openApp, openApps }: Props) {
               aria-label={`Open ${id}`}
             >
               <div className="desk-icon__img" style={{ background: cfg.bg }}>{cfg.icon}</div>
-              <div className="desk-icon__label">{id}.{id === 'terminal' ? 'app' : id === 'metrics' ? 'sh' : id === 'experience' ? 'log' : id === 'skills' ? 'sys' : id === 'projects' ? 'db' : id === 'contact' ? 'cfg' : 'exe'}</div>
+              <div className="desk-icon__label">{id === 'experience' ? 'exp.log' : `${id}.${id === 'terminal' ? 'app' : id === 'metrics' ? 'sh' : id === 'skills' ? 'sys' : id === 'projects' ? 'db' : id === 'contact' ? 'cfg' : 'exe'}`}</div>
               {isOpen && <div className="desk-icon__dot" />}
             </div>
           );
