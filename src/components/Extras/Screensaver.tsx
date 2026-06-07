@@ -7,10 +7,11 @@ interface Props {
   active: boolean;
   onWake: () => void;
   mode?: ScreensaverMode;
+  isStatic?: boolean;
 }
 
 // ── Clock screensaver (existing style, cleaned up) ──────────────────────────
-function ClockScreensaver({ onWake }: { onWake: () => void }) {
+function ClockScreensaver({ onWake, isStatic }: { onWake: () => void; isStatic: boolean }) {
   const [time, setTime] = useState('');
   const [date, setDate] = useState('');
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -66,13 +67,13 @@ function ClockScreensaver({ onWake }: { onWake: () => void }) {
   }, []);
 
   return (
-    <div className="screensaver screensaver--clock" onClick={onWake}>
+    <div className="screensaver screensaver--clock" onClick={isStatic ? undefined : onWake}>
       <canvas ref={canvasRef} className="screensaver__canvas" />
       <div className="screensaver__content">
         <div className="screensaver__time">{time}</div>
         <div className="screensaver__date">{date}</div>
         <div className="screensaver__name">Khush Shah &nbsp;·&nbsp; KhushOS</div>
-        <div className="screensaver__hint">Click or press any key to wake</div>
+        {!isStatic && <div className="screensaver__hint">Click or press any key to wake</div>}
       </div>
     </div>
   );
@@ -158,8 +159,8 @@ function ParticlesScreensaver({ onWake }: { onWake: () => void }) {
 }
 
 // ── Main export ─────────────────────────────────────────────────────────────
-export default function Screensaver({ active, onWake, mode = 'clock' }: Props) {
+export default function Screensaver({ active, onWake, mode = 'clock', isStatic = false }: Props) {
   if (!active) return null;
   if (mode === 'particles') return <ParticlesScreensaver onWake={onWake} />;
-  return <ClockScreensaver onWake={onWake} />;
+  return <ClockScreensaver onWake={onWake} isStatic={isStatic} />;
 }

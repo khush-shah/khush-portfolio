@@ -41,6 +41,9 @@ export default function App() {
   const [screensaver, setScreensaver] = useState(false);
   const [screensaverMode, setScreensaverMode] = useState<ScreensaverMode>('clock');
   const [ssPickerOpen, setSsPickerOpen] = useState(false);
+  const [ssStatic, setSsStatic] = useState(false);
+  const ssStaticRef = useRef(false);
+  useEffect(() => { ssStaticRef.current = ssStatic; }, [ssStatic]);
   const [stickyNotes, setStickyNotes] = useState<StickyNoteData[]>([]);
 
   // SCREENSAVER
@@ -52,7 +55,8 @@ export default function App() {
 
   // stable resetIdle - never recreated
   const resetIdle = useCallback(() => {
-    // wake screensaver if it's on
+    // wake screensaver if it's on (but not in static mode)
+    if (screensaverRef.current && ssStaticRef.current) return;
     if (screensaverRef.current) {
       screensaverRef.current = false;
       setScreensaver(false);
@@ -91,7 +95,7 @@ export default function App() {
         setMatrixMode(false);
         setHackMode(false);
         // wake screensaver on ESC too
-        if (screensaverRef.current) { screensaverRef.current = false; setScreensaver(false); }
+        if (screensaverRef.current && !ssStaticRef.current) { screensaverRef.current = false; setScreensaver(false); }
       }
     };
     window.addEventListener('keydown', handler);
@@ -205,6 +209,7 @@ export default function App() {
     { icon: '💀', label: 'Hack Mode', action: () => setHackMode(true) },
     { icon: '💤', label: 'Screensaver Now', action: () => { screensaverRef.current = true; setScreensaver(true); } },
     { icon: '🎨', label: 'Screensaver Style...', action: () => setSsPickerOpen(true) },
+    { icon: '📌', label: ssStatic ? 'Static Mode: ON' : 'Static Mode: OFF', action: () => setSsStatic(v => !v) },
     null,
     { icon: '✕', label: 'Close All Windows', action: () => os.windows.forEach(w => os.closeApp(w.id)) },
   ];
@@ -302,7 +307,7 @@ export default function App() {
       <MatrixRain active={matrixMode} onExit={() => setMatrixMode(false)} />
       <HackMode active={hackMode} onExit={() => setHackMode(false)} />
       <ScreensaverPicker open={ssPickerOpen} current={screensaverMode} onChange={setScreensaverMode} onClose={() => setSsPickerOpen(false)} />
-      <Screensaver active={screensaver} mode={screensaverMode} onWake={() => { screensaverRef.current = false; setScreensaver(false); resetIdle(); }} />
+      <Screensaver active={screensaver} mode={screensaverMode} isStatic={ssStatic} onWake={() => { screensaverRef.current = false; setScreensaver(false); resetIdle(); }} />
     </>
   );
 }
