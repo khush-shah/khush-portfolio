@@ -96,7 +96,7 @@ export default function App() {
         setHackMode(false);
         if (screensaverRef.current && !ssStaticRef.current) { screensaverRef.current = false; setScreensaver(false); }
       }
-      if (e.key === 'F12' && screensaverRef.current && ssStaticRef.current) {
+      if (e.key === 'Escape' && screensaverRef.current && ssStaticRef.current) {
         ssStaticRef.current = false;
         setSsStatic(false);
         screensaverRef.current = false;
