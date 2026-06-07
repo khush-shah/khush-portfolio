@@ -23,7 +23,7 @@ export default function CursorTrail() {
       span.className = 'cursor-trail-char';
       span.textContent = CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)];
       span.style.left = (e.clientX + (Math.random() - 0.5) * 16) + 'px';
-      span.style.top  = (e.clientY + (Math.random() - 0.5) * 16) + 'px';
+      span.style.top = (e.clientY + (Math.random() - 0.5) * 16) + 'px';
       span.style.animationDuration = (Math.random() * 600 + 500) + 'ms';
       container.appendChild(span);
       setTimeout(() => span.remove(), 1200);

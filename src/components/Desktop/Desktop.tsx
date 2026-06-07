@@ -7,7 +7,7 @@ interface Props {
   openApps: AppId[];
 }
 
-const ICON_ORDER: AppId[] = ['about','projects','skills','experience','metrics','terminal','contact'];
+const ICON_ORDER: AppId[] = ['about', 'projects', 'skills', 'experience', 'metrics', 'terminal', 'contact'];
 
 export default function Desktop({ openApp, openApps }: Props) {
   const handleCtx = (e: React.MouseEvent) => {

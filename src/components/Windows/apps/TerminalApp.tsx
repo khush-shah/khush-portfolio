@@ -197,7 +197,7 @@ export default function TerminalApp({ openApp }: { openApp: (id: string) => void
     }
 
     if (cmd === 'open') {
-      const valid = ['about','projects','skills','experience','metrics','terminal','contact'];
+      const valid = ['about', 'projects', 'skills', 'experience', 'metrics', 'terminal', 'contact'];
       if (valid.includes(args[0])) {
         print([{ text: `Opening ${args[0]}…`, color: '#4da6ff' }]);
         setTimeout(() => openApp(args[0]), 200);
@@ -243,7 +243,7 @@ export default function TerminalApp({ openApp }: { openApp: (id: string) => void
       setInput(idx === -1 ? '' : history[idx]);
     } else if (e.key === 'Tab') {
       e.preventDefault();
-      const cmds = ['help','whoami','neofetch','ls','cat ','skills --list','projects --all','metrics --live','ping ','open ','clear','konami'];
+      const cmds = ['help', 'whoami', 'neofetch', 'ls', 'cat ', 'skills --list', 'projects --all', 'metrics --live', 'ping ', 'open ', 'clear', 'konami'];
       const match = cmds.find(c => c.startsWith(input));
       if (match) setInput(match);
     }

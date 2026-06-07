@@ -1,11 +1,64 @@
 .skills-app {
-  padding:20px; height:100%; overflow:auto;
-  &__cat { margin-bottom:22px; }
-  &__cat-label { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--blue); margin-bottom:10px; display:flex; align-items:center; gap:8px;
-    &::after { content:''; flex:1; height:1px; background:rgba(77,166,255,0.15); } }
-  &__row { display:flex; align-items:center; gap:12px; margin-bottom:9px; }
-  &__name { font-size:12px; color:var(--text); width:clamp(100px, 40%, 170px); flex-shrink:0; }
-  &__track { flex:1; height:4px; background:rgba(255,255,255,0.05); border-radius:2px; overflow:hidden; }
-  &__fill { height:100%; background:linear-gradient(90deg,var(--blue),var(--purple)); border-radius:2px; transition:width 1.1s cubic-bezier(0.16,1,0.3,1); }
-  &__pct { font-size:11px; color:var(--text2); width:32px; text-align:right; flex-shrink:0; }
+  padding: 20px;
+  height: 100%;
+  overflow: auto;
+
+  &__cat {
+    margin-bottom: 22px;
+  }
+
+  &__cat-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(77, 166, 255, 0.15);
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 9px;
+  }
+
+  &__name {
+    font-size: 12px;
+    color: var(--text);
+    width: clamp(100px, 40%, 170px);
+    flex-shrink: 0;
+  }
+
+  &__track {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    border-radius: 2px;
+    transition: width 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &__pct {
+    font-size: 11px;
+    color: var(--text2);
+    width: 32px;
+    text-align: right;
+    flex-shrink: 0;
+  }
 }

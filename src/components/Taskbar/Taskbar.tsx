@@ -20,7 +20,7 @@ export default function Taskbar({ windows, openApp, minimizeApp, onCmdPalette }:
     const tick = () => {
       const now = new Date();
       setTime(now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }));
-      setDate(now.toLocaleDateString('en-IN', { day:'2-digit', month:'short' }));
+      setDate(now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }));
     };
     tick();
     const t = setInterval(tick, 1000);

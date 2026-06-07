@@ -1,15 +1,30 @@
 .boot {
-  position: fixed; inset: 0; z-index: 9000;
-  background: #000; color: #39ff6e;
-  font-family: var(--mono); font-size: clamp(10px, 2.5vw, 13px); line-height: 1.65;
-  display: flex; flex-direction: column; padding: clamp(14px, 4vw, 36px);
-  overflow: hidden; transition: opacity 0.7s ease;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: #000;
+  color: #39ff6e;
+  font-family: var(--mono);
+  font-size: clamp(10px, 2.5vw, 13px);
+  line-height: 1.65;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(14px, 4vw, 36px);
+  overflow: hidden;
+  transition: opacity 0.7s ease;
 
-  &--fade { opacity: 0; pointer-events: none; }
+  &--fade {
+    opacity: 0;
+    pointer-events: none;
+  }
 
   &__lines {
-    flex: 1; overflow-y: auto;
-    &::-webkit-scrollbar { display: none; }
+    flex: 1;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &__line {
@@ -17,27 +32,38 @@
     animation: bootLine 0.15s ease forwards;
     white-space: pre-wrap;
   }
-  @keyframes bootLine { to { opacity: 1; } }
+
+  @keyframes bootLine {
+    to {
+      opacity: 1;
+    }
+  }
 
   &__footer {
-    margin-top: 24px; flex-shrink: 0;
+    margin-top: 24px;
+    flex-shrink: 0;
   }
 
   &__bar-wrap {
     width: min(380px, 90vw);
     height: 6px;
-    background: rgba(57,255,110,0.15);
-    border: 1px solid rgba(57,255,110,0.3);
-    border-radius: 3px; overflow: hidden; margin-bottom: 6px;
+    background: rgba(57, 255, 110, 0.15);
+    border: 1px solid rgba(57, 255, 110, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 6px;
   }
 
   &__bar-fill {
-    height: 100%; background: #39ff6e;
+    height: 100%;
+    background: #39ff6e;
     transition: width 0.25s ease;
-    box-shadow: 0 0 8px rgba(57,255,110,0.6);
+    box-shadow: 0 0 8px rgba(57, 255, 110, 0.6);
   }
 
   &__bar-label {
-    font-size: 11px; color: rgba(57,255,110,0.6); letter-spacing: 0.06em;
+    font-size: 11px;
+    color: rgba(57, 255, 110, 0.6);
+    letter-spacing: 0.06em;
   }
 }

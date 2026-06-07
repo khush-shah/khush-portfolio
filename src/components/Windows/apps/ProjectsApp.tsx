@@ -8,7 +8,7 @@ export default function ProjectsApp() {
   const filtered = PROJECTS.filter(p =>
     !query || p.title.toLowerCase().includes(query) || p.tags.join(' ').toLowerCase().includes(query)
   );
-  const badgeClass: Record<string,string> = { prod:'badge-prod', green:'badge-green', npm:'badge-npm' };
+  const badgeClass: Record<string, string> = { prod: 'badge-prod', green: 'badge-green', npm: 'badge-npm' };
 
   return (
     <div className="proj-app">
@@ -28,7 +28,7 @@ export default function ProjectsApp() {
                 <td className="proj-app__id">{p.id}</td>
                 <td>
                   <div className="proj-app__title">{p.title}</div>
-                  <div className="proj-app__desc">{p.desc.slice(0,110)}…</div>
+                  <div className="proj-app__desc">{p.desc.slice(0, 110)}…</div>
                 </td>
                 <td><span className={`proj-app__badge ${badgeClass[p.badge]}`}>{p.type}</span></td>
                 <td>{p.metrics.map(m => <span key={m} className="proj-app__metric">{m}</span>)}</td>

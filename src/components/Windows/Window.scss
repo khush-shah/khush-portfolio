@@ -6,9 +6,9 @@
   display: flex;
   flex-direction: column;
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.04),
-    0 24px 80px rgba(0,0,0,0.75),
-    0 4px 20px rgba(0,0,0,0.5);
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 24px 80px rgba(0, 0, 0, 0.75),
+    0 4px 20px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
   min-width: min(340px, 100vw);
@@ -16,13 +16,22 @@
   animation: winOpen 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
+
 .window:hover {
   border-color: rgba(77, 166, 255, 0.28);
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 32px 100px rgba(0,0,0,0.85), 0 0 60px rgba(77,166,255,0.06);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 32px 100px rgba(0, 0, 0, 0.85), 0 0 60px rgba(77, 166, 255, 0.06);
 }
+
 @keyframes winOpen {
-  from { transform: scale(0.88) translateY(12px); opacity: 0; }
-  to   { transform: none; opacity: 1; }
+  from {
+    transform: scale(0.88) translateY(12px);
+    opacity: 0;
+  }
+
+  to {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .window__titlebar {
@@ -55,15 +64,28 @@
   transition: filter 0.15s, transform 0.1s;
   flex-shrink: 0;
 }
-.win-dot:hover { filter: brightness(1.4); transform: scale(1.12); }
-.win-dot--close { background: #ff5f56; }
-.win-dot--min   { background: #ffbd2e; }
-.win-dot--max   { background: #28c840; }
+
+.win-dot:hover {
+  filter: brightness(1.4);
+  transform: scale(1.12);
+}
+
+.win-dot--close {
+  background: #ff5f56;
+}
+
+.win-dot--min {
+  background: #ffbd2e;
+}
+
+.win-dot--max {
+  background: #28c840;
+}
 
 .window__title {
   flex: 1;
   font-size: 12px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255, 255, 255, 0.35);
   letter-spacing: 0.04em;
   text-align: center;
   white-space: nowrap;
@@ -78,9 +100,19 @@
   position: relative;
   min-height: 0;
 }
-.window__body::-webkit-scrollbar { width: 4px; }
-.window__body::-webkit-scrollbar-track { background: transparent; }
-.window__body::-webkit-scrollbar-thumb { background: rgba(77,166,255,0.15); border-radius: 2px; }
+
+.window__body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.window__body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.window__body::-webkit-scrollbar-thumb {
+  background: rgba(77, 166, 255, 0.15);
+  border-radius: 2px;
+}
 
 .window__resize {
   position: absolute;
@@ -89,12 +121,13 @@
   width: 18px;
   height: 18px;
   cursor: se-resize;
-  background: linear-gradient(135deg, transparent 50%, rgba(77,166,255,0.22) 50%);
+  background: linear-gradient(135deg, transparent 50%, rgba(77, 166, 255, 0.22) 50%);
   border-radius: 0 0 12px 0;
   z-index: 10;
 }
+
 .window__resize:hover {
-  background: linear-gradient(135deg, transparent 50%, rgba(77,166,255,0.4) 50%);
+  background: linear-gradient(135deg, transparent 50%, rgba(77, 166, 255, 0.4) 50%);
 }
 
 @media (max-width: 767px) {
@@ -102,6 +135,7 @@
     border-radius: 0 !important;
     min-width: 100vw !important;
   }
+
   .window__title {
     font-size: 11px;
     margin-right: 0;

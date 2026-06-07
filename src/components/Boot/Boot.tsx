@@ -23,7 +23,7 @@ export default function Boot({ onComplete }: Props) {
   }, [onComplete]);
 
   const col = (t: string) => {
-    if (t === 'ok')   return '#39ff6e';
+    if (t === 'ok') return '#39ff6e';
     if (t === 'warn') return '#ffb830';
     if (t === 'info') return '#4da6ff';
     return '#c4d4ec';

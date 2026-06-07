@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 
 interface Props { active: boolean; }
 
-const COLORS = ['#ff4560','#4da6ff','#3dff7a','#ffb627','#c084fc','#fb7185','#34d399','#60a5fa','#fbbf24'];
+const COLORS = ['#ff4560', '#4da6ff', '#3dff7a', '#ffb627', '#c084fc', '#fb7185', '#34d399', '#60a5fa', '#fbbf24'];
 
 export default function PartyMode({ active }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,5 +39,5 @@ export default function PartyMode({ active }: Props) {
     return () => { activeRef.current = false; };
   }, [active]);
 
-  return <div ref={containerRef} style={{ position:'fixed', inset:0, zIndex:9001, pointerEvents:'none' }} />;
+  return <div ref={containerRef} style={{ position: 'fixed', inset: 0, zIndex: 9001, pointerEvents: 'none' }} />;
 }

@@ -3,29 +3,29 @@ import { useOS } from './hooks/useOS';
 import type { AppId } from './types';
 import type { StickyNoteData } from './components/Extras/StickyNote';
 
-import Boot             from './components/Boot/Boot';
-import Login            from './components/Login/Login';
-import Wallpaper        from './components/Desktop/Wallpaper';
-import Desktop          from './components/Desktop/Desktop';
-import Taskbar          from './components/Taskbar/Taskbar';
-import Window           from './components/Windows/Window';
-import AboutApp         from './components/Windows/apps/AboutApp';
-import ProjectsApp      from './components/Windows/apps/ProjectsApp';
-import SkillsApp        from './components/Windows/apps/SkillsApp';
-import ExperienceApp    from './components/Windows/apps/ExperienceApp';
-import MetricsApp       from './components/Windows/apps/MetricsApp';
-import TerminalApp      from './components/Windows/apps/TerminalApp';
-import ContactApp       from './components/Windows/apps/ContactApp';
+import Boot from './components/Boot/Boot';
+import Login from './components/Login/Login';
+import Wallpaper from './components/Desktop/Wallpaper';
+import Desktop from './components/Desktop/Desktop';
+import Taskbar from './components/Taskbar/Taskbar';
+import Window from './components/Windows/Window';
+import AboutApp from './components/Windows/apps/AboutApp';
+import ProjectsApp from './components/Windows/apps/ProjectsApp';
+import SkillsApp from './components/Windows/apps/SkillsApp';
+import ExperienceApp from './components/Windows/apps/ExperienceApp';
+import MetricsApp from './components/Windows/apps/MetricsApp';
+import TerminalApp from './components/Windows/apps/TerminalApp';
+import ContactApp from './components/Windows/apps/ContactApp';
 import SystemMonitorApp from './components/Windows/apps/SystemMonitorApp';
-import CommandPalette   from './components/CommandPalette/CommandPalette';
-import MetricModal      from './components/MetricModal/MetricModal';
-import Notifications    from './components/Notifications/Notifications';
-import CursorTrail      from './components/Extras/CursorTrail';
-import MatrixRain       from './components/Extras/MatrixRain';
-import HackMode         from './components/Extras/HackMode';
-import PartyMode        from './components/Extras/PartyMode';
-import Screensaver      from './components/Extras/Screensaver';
-import StickyNotes      from './components/Extras/StickyNote';
+import CommandPalette from './components/CommandPalette/CommandPalette';
+import MetricModal from './components/MetricModal/MetricModal';
+import Notifications from './components/Notifications/Notifications';
+import CursorTrail from './components/Extras/CursorTrail';
+import MatrixRain from './components/Extras/MatrixRain';
+import HackMode from './components/Extras/HackMode';
+import PartyMode from './components/Extras/PartyMode';
+import Screensaver from './components/Extras/Screensaver';
+import StickyNotes from './components/Extras/StickyNote';
 import { COLORS as STICKY_COLORS } from './components/Extras/StickyNote';
 
 import './components/Extras/Extras.scss';
@@ -33,16 +33,16 @@ import './components/Extras/Extras.scss';
 export default function App() {
   const os = useOS();
 
-  const [matrixMode,  setMatrixMode]  = useState(false);
-  const [hackMode,    setHackMode]    = useState(false);
-  const [partyMode,   setPartyMode]   = useState(false);
+  const [matrixMode, setMatrixMode] = useState(false);
+  const [hackMode, setHackMode] = useState(false);
+  const [partyMode, setPartyMode] = useState(false);
   const [screensaver, setScreensaver] = useState(false);
   const [stickyNotes, setStickyNotes] = useState<StickyNoteData[]>([]);
 
   // SCREENSAVER
-  const idleTimer      = useRef<ReturnType<typeof setTimeout>>();
+  const idleTimer = useRef<ReturnType<typeof setTimeout>>();
   const screensaverRef = useRef(false);   // mirrors state without closure issues
-  const phaseRef       = useRef(os.phase);
+  const phaseRef = useRef(os.phase);
 
   useEffect(() => { phaseRef.current = os.phase; }, [os.phase]);
 
@@ -64,12 +64,12 @@ export default function App() {
 
   useEffect(() => {
     window.addEventListener('mousemove', resetIdle, { passive: true });
-    window.addEventListener('keydown',   resetIdle, { passive: true });
+    window.addEventListener('keydown', resetIdle, { passive: true });
     window.addEventListener('mousedown', resetIdle, { passive: true });
     resetIdle();
     return () => {
       window.removeEventListener('mousemove', resetIdle);
-      window.removeEventListener('keydown',   resetIdle);
+      window.removeEventListener('keydown', resetIdle);
       window.removeEventListener('mousedown', resetIdle);
       clearTimeout(idleTimer.current);
     };
@@ -95,7 +95,7 @@ export default function App() {
   }, [os]);
 
   // ── Konami code ──
-  const konamiSeq = [38,38,40,40,37,39,37,39,66,65];
+  const konamiSeq = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
   const konamiIdx = useRef(0);
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -119,8 +119,8 @@ export default function App() {
     const handler = (e: Event) => {
       const { cmd } = (e as CustomEvent).detail;
       if (cmd === 'matrix') setMatrixMode(true);
-      if (cmd === 'hack')   setHackMode(true);
-      if (cmd === 'party')  triggerParty();
+      if (cmd === 'hack') setHackMode(true);
+      if (cmd === 'party') triggerParty();
       if (cmd === 'sysmon') os.openApp('sysmon');
     };
     window.addEventListener('terminalCmd', handler);
@@ -146,7 +146,7 @@ export default function App() {
     if (el) {
       el.style.display = 'block';
       el.style.left = e.clientX + 'px';
-      el.style.top  = e.clientY + 'px';
+      el.style.top = e.clientY + 'px';
       (el as HTMLElement & { _lastX: number; _lastY: number })._lastX = e.clientX;
       (el as HTMLElement & { _lastX: number; _lastY: number })._lastY = e.clientY;
     }
@@ -177,31 +177,31 @@ export default function App() {
 
   const renderApp = (id: AppId) => {
     switch (id) {
-      case 'about':      return <AboutApp openModal={k => os.setMetricModalKey(k)} />;
-      case 'projects':   return <ProjectsApp />;
-      case 'skills':     return <SkillsApp />;
+      case 'about': return <AboutApp openModal={k => os.setMetricModalKey(k)} />;
+      case 'projects': return <ProjectsApp />;
+      case 'skills': return <SkillsApp />;
       case 'experience': return <ExperienceApp />;
-      case 'metrics':    return <MetricsApp openModal={k => os.setMetricModalKey(k)} />;
-      case 'terminal':   return <TerminalApp openApp={(id: string) => os.openApp(id as AppId)} />;
-      case 'contact':    return <ContactApp />;
-      case 'sysmon':     return <SystemMonitorApp />;
+      case 'metrics': return <MetricsApp openModal={k => os.setMetricModalKey(k)} />;
+      case 'terminal': return <TerminalApp openApp={(id: string) => os.openApp(id as AppId)} />;
+      case 'contact': return <ContactApp />;
+      case 'sysmon': return <SystemMonitorApp />;
     }
   };
 
   const CTX_ITEMS = [
-    { icon:'📝', label:'New Sticky Note - Yellow', action: () => addStickyNote(STICKY_COLORS[0]) },
-    { icon:'📝', label:'New Sticky Note - Blue',   action: () => addStickyNote(STICKY_COLORS[2]) },
-    { icon:'📝', label:'New Sticky Note - Pink',   action: () => addStickyNote(STICKY_COLORS[3]) },
+    { icon: '📝', label: 'New Sticky Note - Yellow', action: () => addStickyNote(STICKY_COLORS[0]) },
+    { icon: '📝', label: 'New Sticky Note - Blue', action: () => addStickyNote(STICKY_COLORS[2]) },
+    { icon: '📝', label: 'New Sticky Note - Pink', action: () => addStickyNote(STICKY_COLORS[3]) },
     null,
-    { icon:'📡', label:'System Monitor',  action: () => os.openApp('sysmon')     },
-    { icon:'⌨️', label:'New Terminal',    action: () => os.openApp('terminal')   },
+    { icon: '📡', label: 'System Monitor', action: () => os.openApp('sysmon') },
+    { icon: '⌨️', label: 'New Terminal', action: () => os.openApp('terminal') },
     null,
-    { icon:'🟩', label:'Matrix Mode',     action: () => setMatrixMode(true)      },
-    { icon:'🎉', label:'Party Mode',       action: () => triggerParty()           },
-    { icon:'💀', label:'Hack Mode',        action: () => setHackMode(true)        },
-    { icon:'💤', label:'Screensaver Now',  action: () => { screensaverRef.current=true; setScreensaver(true); } },
+    { icon: '🟩', label: 'Matrix Mode', action: () => setMatrixMode(true) },
+    { icon: '🎉', label: 'Party Mode', action: () => triggerParty() },
+    { icon: '💀', label: 'Hack Mode', action: () => setHackMode(true) },
+    { icon: '💤', label: 'Screensaver Now', action: () => { screensaverRef.current = true; setScreensaver(true); } },
     null,
-    { icon:'✕',  label:'Close All Windows', action: () => os.windows.forEach(w => os.closeApp(w.id)) },
+    { icon: '✕', label: 'Close All Windows', action: () => os.windows.forEach(w => os.closeApp(w.id)) },
   ];
 
   return (
@@ -210,12 +210,12 @@ export default function App() {
       <CursorTrail />
       <PartyMode active={partyMode} />
 
-      {os.phase === 'boot'  && <Boot onComplete={() => os.setPhase('login')} />}
+      {os.phase === 'boot' && <Boot onComplete={() => os.setPhase('login')} />}
       {os.phase === 'login' && <Login onLogin={handleLogin} />}
 
       {os.phase === 'desktop' && (
         <>
-          <div id="desktop-area" style={{ position:'fixed', inset:0, bottom:48, zIndex:1 }}>
+          <div id="desktop-area" style={{ position: 'fixed', inset: 0, bottom: 48, zIndex: 1 }}>
             <Desktop openApp={os.openApp} openApps={os.windows.map(w => w.id)} />
           </div>
 
@@ -249,24 +249,24 @@ export default function App() {
 
           {/* Right-click context menu */}
           <div id="desktop-ctx" style={{
-            display:'none', position:'fixed', zIndex:7000,
-            background:'rgba(8,14,26,0.97)', border:'1px solid rgba(77,166,255,0.2)',
-            borderRadius:8, padding:4, minWidth:200,
-            backdropFilter:'blur(20px)', boxShadow:'0 8px 32px rgba(0,0,0,0.6)',
-            fontFamily:'var(--mono)',
+            display: 'none', position: 'fixed', zIndex: 7000,
+            background: 'rgba(8,14,26,0.97)', border: '1px solid rgba(77,166,255,0.2)',
+            borderRadius: 8, padding: 4, minWidth: 200,
+            backdropFilter: 'blur(20px)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
+            fontFamily: 'var(--mono)',
           }}>
             {CTX_ITEMS.map((item, i) =>
               item === null
-                ? <div key={i} style={{ height:1, background:'rgba(77,166,255,0.1)', margin:'3px 8px' }} />
+                ? <div key={i} style={{ height: 1, background: 'rgba(77,166,255,0.1)', margin: '3px 8px' }} />
                 : (
                   <div
                     key={i}
                     onClick={item.action}
-                    style={{ display:'flex', alignItems:'center', gap:10, padding:'7px 14px', fontSize:12, color:'var(--text)', borderRadius:5, cursor:'pointer' }}
+                    style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '7px 14px', fontSize: 12, color: 'var(--text)', borderRadius: 5, cursor: 'pointer' }}
                     onMouseEnter={e => (e.currentTarget.style.background = 'rgba(77,166,255,0.1)')}
                     onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                   >
-                    <span style={{ fontSize:14, width:18, textAlign:'center', flexShrink:0 }}>{item.icon}</span>
+                    <span style={{ fontSize: 14, width: 18, textAlign: 'center', flexShrink: 0 }}>{item.icon}</span>
                     {item.label}
                   </div>
                 )
@@ -294,9 +294,9 @@ export default function App() {
 
       <Notifications notifications={os.notifications} dismiss={os.dismissNotif} />
 
-      <MatrixRain  active={matrixMode}  onExit={() => setMatrixMode(false)} />
-      <HackMode    active={hackMode}    onExit={() => setHackMode(false)}   />
-      <Screensaver active={screensaver} onWake={() => { screensaverRef.current=false; setScreensaver(false); resetIdle(); }} />
+      <MatrixRain active={matrixMode} onExit={() => setMatrixMode(false)} />
+      <HackMode active={hackMode} onExit={() => setHackMode(false)} />
+      <Screensaver active={screensaver} onWake={() => { screensaverRef.current = false; setScreensaver(false); resetIdle(); }} />
     </>
   );
 }

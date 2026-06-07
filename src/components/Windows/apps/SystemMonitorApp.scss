@@ -1,52 +1,198 @@
 .sysmon {
-  padding: 16px; height: 100%; overflow-y: auto; font-family: var(--mono);
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+  font-family: var(--mono);
 
-  &__header { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
-  &__live { display:flex; align-items:center; gap:6px; font-size:10px; color:var(--green); letter-spacing:0.12em; }
-  &__live-dot { width:6px; height:6px; border-radius:50%; background:var(--green); box-shadow:0 0 6px var(--green); animation:liveDot 1.5s infinite; }
-  @keyframes liveDot { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  &__uptime { font-size:10px; color:var(--text3); }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
 
-  &__gauges { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:16px; }
-  &__gauge { background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:8px; padding:12px; }
-  &__gauge-top { display:flex; justify-content:space-between; margin-bottom:8px; }
-  &__gauge-label { font-size:10px; color:var(--text3); letter-spacing:0.12em; }
-  &__gauge-val { font-size:13px; font-weight:600; }
-  &__gauge-track { height:3px; background:rgba(255,255,255,0.05); border-radius:2px; overflow:hidden; margin-bottom:6px; }
-  &__gauge-fill { height:100%; border-radius:2px; transition:width 0.6s ease; }
-  &__gauge-spark { height:36px; }
-  &__gauge-peak { font-size:9px; color:var(--text3); margin-top:4px; }
+  &__live {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: var(--green);
+    letter-spacing: 0.12em;
+  }
 
-  &__proc-label { font-size:10px; color:var(--text3); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:8px; }
-  &__procs { border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  &__live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+    animation: liveDot 1.5s infinite;
+  }
+
+  @keyframes liveDot {
+
+    0%,
+    100% {
+      opacity: 1
+    }
+
+    50% {
+      opacity: 0.3
+    }
+  }
+
+  &__uptime {
+    font-size: 10px;
+    color: var(--text3);
+  }
+
+  &__gauges {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  &__gauge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  &__gauge-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  &__gauge-label {
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 0.12em;
+  }
+
+  &__gauge-val {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  &__gauge-track {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+
+  &__gauge-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s ease;
+  }
+
+  &__gauge-spark {
+    height: 36px;
+  }
+
+  &__gauge-peak {
+    font-size: 9px;
+    color: var(--text3);
+    margin-top: 4px;
+  }
+
+  &__proc-label {
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  &__procs {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
   &__proc-head {
-    display:grid;
-    grid-template-columns:50px 1fr 60px 70px 80px;
-    @media (max-width:500px) { grid-template-columns:1fr 50px 60px; }
-    padding:7px 12px; background:rgba(77,166,255,0.04);
+    display: grid;
+    grid-template-columns: 50px 1fr 60px 70px 80px;
+
+    @media (max-width:500px) {
+      grid-template-columns: 1fr 50px 60px;
+    }
+
+    padding:7px 12px;
+    background:rgba(77, 166, 255, 0.04);
     border-bottom:1px solid var(--border);
-    font-size:9px; color:var(--text3); letter-spacing:0.1em; text-transform:uppercase;
+    font-size:9px;
+    color:var(--text3);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
   }
+
   &__proc {
-    display:grid;
-    grid-template-columns:50px 1fr 60px 70px 80px;
-    @media (max-width:500px) { grid-template-columns:1fr 50px 60px; }
-    padding:8px 12px; font-size:11px; color:var(--text2);
-    border-bottom:1px solid rgba(255,255,255,0.02);
+    display: grid;
+    grid-template-columns: 50px 1fr 60px 70px 80px;
+
+    @media (max-width:500px) {
+      grid-template-columns: 1fr 50px 60px;
+    }
+
+    padding:8px 12px;
+    font-size:11px;
+    color:var(--text2);
+    border-bottom:1px solid rgba(255, 255, 255, 0.02);
     transition:background 0.15s;
-    &:last-child { border-bottom:none; }
-    &:hover { background:rgba(77,166,255,0.03); }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: rgba(77, 166, 255, 0.03);
+    }
   }
-  &__proc-pid  { color:var(--text3); }
-  &__proc-name { color:var(--text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  &__proc-status { font-size:9px; letter-spacing:0.08em; padding:2px 6px; border-radius:3px; align-self:center;
-    &--running  { background:rgba(61,255,122,0.08); color:var(--green); }
-    &--sleeping { background:rgba(255,255,255,0.05); color:var(--text3); }
+
+  &__proc-pid {
+    color: var(--text3);
+  }
+
+  &__proc-name {
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__proc-status {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    align-self: center;
+
+    &--running {
+      background: rgba(61, 255, 122, 0.08);
+      color: var(--green);
+    }
+
+    &--sleeping {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text3);
+    }
   }
 }
 
 @media (max-width: 500px) {
+
   .sysmon__proc-pid,
-  .sysmon__proc-mem { display: none; }
-  .sysmon__gauges { grid-template-columns: 1fr 1fr; }
+  .sysmon__proc-mem {
+    display: none;
+  }
+
+  .sysmon__gauges {
+    grid-template-columns: 1fr 1fr;
+  }
 }

@@ -4,13 +4,13 @@ import './MetricsApp.scss';
 interface Props { openModal: (key: string) => void; }
 
 const METRICS = [
-  { key:'users',    val:31,  sfx:'K+', label:'Users Reactivated',   color:'#4da6ff'  },
-  { key:'latency',  val:40,  sfx:'%',  label:'API Latency Reduced',  color:'#c084fc'  },
-  { key:'delivery', val:98,  sfx:'%',  label:'Delivery Rate',        color:'#3dff7a'  },
-  { key:'failures', val:80,  sfx:'%',  label:'Webhook Failure Drop', color:'#ffb627'  },
+  { key: 'users', val: 31, sfx: 'K+', label: 'Users Reactivated', color: '#4da6ff' },
+  { key: 'latency', val: 40, sfx: '%', label: 'API Latency Reduced', color: '#c084fc' },
+  { key: 'delivery', val: 98, sfx: '%', label: 'Delivery Rate', color: '#3dff7a' },
+  { key: 'failures', val: 80, sfx: '%', label: 'Webhook Failure Drop', color: '#ffb627' },
 ];
 
-const PIPE = ['Ingest','BullMQ','Workers×3','DLQ','Output'];
+const PIPE = ['Ingest', 'BullMQ', 'Workers×3', 'DLQ', 'Output'];
 
 export default function MetricsApp({ openModal }: Props) {
   const [counts, setCounts] = useState(METRICS.map(() => 0));
@@ -134,7 +134,7 @@ export default function MetricsApp({ openModal }: Props) {
       <div className="metrics-app__section">Live Event Pipeline</div>
       <div className="metrics-app__pipeline">
         {PIPE.map((n, i) => (
-          <div key={n} style={{ display:'flex', alignItems:'center' }}>
+          <div key={n} style={{ display: 'flex', alignItems: 'center' }}>
             <div className={`metrics-app__node${i === pipe ? ' active' : ''}${n === 'DLQ' ? ' warn' : ''}`}>{n}</div>
             {i < PIPE.length - 1 && <span className="metrics-app__arrow">→</span>}
           </div>
@@ -144,7 +144,7 @@ export default function MetricsApp({ openModal }: Props) {
 
       <div className="metrics-app__section" style={{ marginTop: 14 }}>Load Graph</div>
       <div className="metrics-app__graph">
-        <canvas ref={canvasRef} style={{ width:'100%', height:'100%', display:'block' }} />
+        <canvas ref={canvasRef} style={{ width: '100%', height: '100%', display: 'block' }} />
       </div>
 
       <button

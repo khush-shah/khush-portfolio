@@ -28,13 +28,13 @@ function sparkline(canvas: HTMLCanvasElement | null, data: number[], color: stri
 
 const PROCESSES = [
   { name: 'node.js worker', pid: 1337, cpu: () => Math.random() * 8 + 2, mem: '142 MB', status: 'running' },
-  { name: 'postgres: query', pid: 5432, cpu: () => Math.random() * 4 + 1, mem: '88 MB',  status: 'running' },
-  { name: 'redis-server',    pid: 6379, cpu: () => Math.random() * 2,     mem: '32 MB',  status: 'running' },
-  { name: 'bullmq-worker×3', pid: 2048, cpu: () => Math.random() * 6 + 3, mem: '96 MB',  status: 'running' },
-  { name: 'socket.io',       pid: 3001, cpu: () => Math.random() * 3 + 1, mem: '54 MB',  status: 'running' },
-  { name: 'evital-sso',      pid: 4000, cpu: () => Math.random() * 1.5,   mem: '28 MB',  status: 'running' },
-  { name: 'cron-reconcile',  pid: 4200, cpu: () => Math.random() * 0.5,   mem: '18 MB',  status: 'sleeping' },
-  { name: 'notification-svc',pid: 4400, cpu: () => Math.random() * 5 + 2, mem: '72 MB',  status: 'running' },
+  { name: 'postgres: query', pid: 5432, cpu: () => Math.random() * 4 + 1, mem: '88 MB', status: 'running' },
+  { name: 'redis-server', pid: 6379, cpu: () => Math.random() * 2, mem: '32 MB', status: 'running' },
+  { name: 'bullmq-worker×3', pid: 2048, cpu: () => Math.random() * 6 + 3, mem: '96 MB', status: 'running' },
+  { name: 'socket.io', pid: 3001, cpu: () => Math.random() * 3 + 1, mem: '54 MB', status: 'running' },
+  { name: 'evital-sso', pid: 4000, cpu: () => Math.random() * 1.5, mem: '28 MB', status: 'running' },
+  { name: 'cron-reconcile', pid: 4200, cpu: () => Math.random() * 0.5, mem: '18 MB', status: 'sleeping' },
+  { name: 'notification-svc', pid: 4400, cpu: () => Math.random() * 5 + 2, mem: '72 MB', status: 'running' },
 ];
 
 export default function SystemMonitorApp() {

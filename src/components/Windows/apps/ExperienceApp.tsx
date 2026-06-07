@@ -14,7 +14,7 @@ export default function ExperienceApp() {
     return () => clearInterval(t);
   }, []);
 
-  const lvlClass: Record<string,string> = { OK:'lvl-ok', INFO:'lvl-info', WARN:'lvl-warn', SYS:'lvl-sys' };
+  const lvlClass: Record<string, string> = { OK: 'lvl-ok', INFO: 'lvl-info', WARN: 'lvl-warn', SYS: 'lvl-sys' };
 
   return (
     <div className="exp-app">
