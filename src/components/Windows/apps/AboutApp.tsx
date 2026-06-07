@@ -23,7 +23,7 @@ export default function AboutApp({ openModal }: Props) {
         </div>
       </div>
       <p className="about-app__bio">
-        Backend-focused engineer with ~1.11 years of <strong>production experience</strong> building systems that handle
+        Backend-focused engineer with ~2 years of <strong>production experience</strong> building systems that handle
         real users, real data, and real failure modes. Focus:{' '}
         <strong>fault tolerance, observability, async pipelines</strong> - not code that works on localhost,
         but code that <strong>stays up at 3am</strong>.
@@ -45,6 +45,31 @@ export default function AboutApp({ openModal }: Props) {
         {['Node.js', 'Express.js', 'PostgreSQL', 'BullMQ', 'Redis', 'Socket.io', 'JWT/SSO', 'Angular', 'TypeScript', 'Docker', 'GCP', 'BigQuery', 'Microservices'].map(t => (
           <span key={t} className="about-app__tag">{t}</span>
         ))}
+      </div>
+      <div className="about-app__actions">
+        <a
+          href="/resume.pdf"
+          download="Khush_Shah_Resume.pdf"
+          className="about-app__btn about-app__btn--primary"
+        >
+          ↓ Download Resume
+        </a>
+        <a
+          href="https://linkedin.com/in/khush-shah-j172"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="about-app__btn about-app__btn--ghost"
+        >
+          LinkedIn ↗
+        </a>
+        <a
+          href="https://github.com/khush-shah"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="about-app__btn about-app__btn--ghost"
+        >
+          GitHub ↗
+        </a>
       </div>
     </div>
   );

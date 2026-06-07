@@ -1,9 +1,16 @@
 // src/components/Extras/Screensaver.tsx
 import { useEffect, useRef, useState } from 'react';
 
-interface Props { active: boolean; onWake: () => void; }
+export type ScreensaverMode = 'clock' | 'particles';
 
-export default function Screensaver({ active, onWake }: Props) {
+interface Props {
+  active: boolean;
+  onWake: () => void;
+  mode?: ScreensaverMode;
+}
+
+// ── Clock screensaver (existing style, cleaned up) ──────────────────────────
+function ClockScreensaver({ onWake }: { onWake: () => void }) {
   const [time, setTime] = useState('');
   const [date, setDate] = useState('');
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -20,9 +27,7 @@ export default function Screensaver({ active, onWake }: Props) {
     return () => clearInterval(t);
   }, []);
 
-  // Floating particles on screensaver canvas
   useEffect(() => {
-    if (!active) return;
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext('2d')!;
     canvas.width = window.innerWidth;
@@ -58,12 +63,10 @@ export default function Screensaver({ active, onWake }: Props) {
     };
     rafRef.current = requestAnimationFrame(draw);
     return () => cancelAnimationFrame(rafRef.current!);
-  }, [active]);
-
-  if (!active) return null;
+  }, []);
 
   return (
-    <div className="screensaver" onClick={onWake}>
+    <div className="screensaver screensaver--clock" onClick={onWake}>
       <canvas ref={canvasRef} className="screensaver__canvas" />
       <div className="screensaver__content">
         <div className="screensaver__time">{time}</div>
@@ -73,4 +76,90 @@ export default function Screensaver({ active, onWake }: Props) {
       </div>
     </div>
   );
+}
+
+// ── Particles screensaver (starfield / network dots) ───────────────────────
+function ParticlesScreensaver({ onWake }: { onWake: () => void }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rafRef = useRef<number>();
+
+  useEffect(() => {
+    const canvas = canvasRef.current!;
+    const ctx = canvas.getContext('2d')!;
+    const W = window.innerWidth;
+    const H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+
+    const COUNT = Math.min(120, Math.floor((W * H) / 8000));
+    const CONNECT_DIST = 140;
+
+    type Dot = { x: number; y: number; vx: number; vy: number; r: number };
+    const dots: Dot[] = Array.from({ length: COUNT }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      r: Math.random() * 1.5 + 0.5,
+    }));
+
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+
+      // Draw connecting lines
+      for (let i = 0; i < dots.length; i++) {
+        for (let j = i + 1; j < dots.length; j++) {
+          const dx = dots[i].x - dots[j].x;
+          const dy = dots[i].y - dots[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < CONNECT_DIST) {
+            const alpha = (1 - dist / CONNECT_DIST) * 0.35;
+            ctx.strokeStyle = `rgba(77,166,255,${alpha})`;
+            ctx.lineWidth = 0.6;
+            ctx.beginPath();
+            ctx.moveTo(dots[i].x, dots[i].y);
+            ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw dots
+      dots.forEach(d => {
+        d.x += d.vx;
+        d.y += d.vy;
+        if (d.x < 0) d.x = W;
+        if (d.x > W) d.x = 0;
+        if (d.y < 0) d.y = H;
+        if (d.y > H) d.y = 0;
+
+        ctx.fillStyle = 'rgba(77,166,255,0.7)';
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      rafRef.current = requestAnimationFrame(draw);
+    };
+    rafRef.current = requestAnimationFrame(draw);
+    return () => cancelAnimationFrame(rafRef.current!);
+  }, []);
+
+  return (
+    <div className="screensaver screensaver--particles" onClick={onWake}>
+      <canvas ref={canvasRef} className="screensaver__canvas" />
+      <div className="screensaver__content screensaver__content--minimal">
+        <div className="screensaver__logo">KS</div>
+        <div className="screensaver__tagline">khush-dev-portfolio.vercel.app</div>
+        <div className="screensaver__hint">Click or press any key to wake</div>
+      </div>
+    </div>
+  );
+}
+
+// ── Main export ─────────────────────────────────────────────────────────────
+export default function Screensaver({ active, onWake, mode = 'clock' }: Props) {
+  if (!active) return null;
+  if (mode === 'particles') return <ParticlesScreensaver onWake={onWake} />;
+  return <ClockScreensaver onWake={onWake} />;
 }

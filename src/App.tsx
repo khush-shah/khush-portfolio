@@ -25,6 +25,8 @@ import MatrixRain from './components/Extras/MatrixRain';
 import HackMode from './components/Extras/HackMode';
 import PartyMode from './components/Extras/PartyMode';
 import Screensaver from './components/Extras/Screensaver';
+import ScreensaverPicker from './components/Extras/ScreensaverPicker';
+import type { ScreensaverMode } from './components/Extras/Screensaver';
 import StickyNotes from './components/Extras/StickyNote';
 import { COLORS as STICKY_COLORS } from './components/Extras/StickyNote';
 
@@ -37,6 +39,8 @@ export default function App() {
   const [hackMode, setHackMode] = useState(false);
   const [partyMode, setPartyMode] = useState(false);
   const [screensaver, setScreensaver] = useState(false);
+  const [screensaverMode, setScreensaverMode] = useState<ScreensaverMode>('clock');
+  const [ssPickerOpen, setSsPickerOpen] = useState(false);
   const [stickyNotes, setStickyNotes] = useState<StickyNoteData[]>([]);
 
   // SCREENSAVER
@@ -200,6 +204,7 @@ export default function App() {
     { icon: '🎉', label: 'Party Mode', action: () => triggerParty() },
     { icon: '💀', label: 'Hack Mode', action: () => setHackMode(true) },
     { icon: '💤', label: 'Screensaver Now', action: () => { screensaverRef.current = true; setScreensaver(true); } },
+    { icon: '🎨', label: 'Screensaver Style...', action: () => setSsPickerOpen(true) },
     null,
     { icon: '✕', label: 'Close All Windows', action: () => os.windows.forEach(w => os.closeApp(w.id)) },
   ];
@@ -296,7 +301,8 @@ export default function App() {
 
       <MatrixRain active={matrixMode} onExit={() => setMatrixMode(false)} />
       <HackMode active={hackMode} onExit={() => setHackMode(false)} />
-      <Screensaver active={screensaver} onWake={() => { screensaverRef.current = false; setScreensaver(false); resetIdle(); }} />
+      <ScreensaverPicker open={ssPickerOpen} current={screensaverMode} onChange={setScreensaverMode} onClose={() => setSsPickerOpen(false)} />
+      <Screensaver active={screensaver} mode={screensaverMode} onWake={() => { screensaverRef.current = false; setScreensaver(false); resetIdle(); }} />
     </>
   );
 }

@@ -45,7 +45,7 @@ export const BOOT_LINES = [
 export const PROJECTS = [
   {
     id: '001', title: 'PillO - Medicine Delivery', type: 'B2C · Production', badge: 'prod',
-    desc: 'Notification engine that reactivated 19K dormant users (8K→31K, ×3.4). BullMQ retry queues, dead-letter handling, cron reconciliation across 1,200+ daily events.',
+    desc: 'Notification engine that reactivated dormant users (8K→31K, ×3.4). BullMQ retry queues, dead-letter handling, cron reconciliation across 1,200+ daily events.',
     metrics: ['31K users', '98% delivery', '80% ↓ failures', '~30% fewer tickets'],
     tags: ['Node.js', 'BullMQ', 'Redis', 'Socket.io', 'PostgreSQL', 'OneSignal'],
   },
@@ -78,7 +78,7 @@ export const SKILLS = {
 
 export const EXPERIENCE_LOG = [
   { ts: '2024-07', lvl: 'SYS', msg: 'Software Engineer (SDE-1) - Equality Healthcare Pvt. Ltd., Ahmedabad' },
-  { ts: '2024-08', lvl: 'OK', msg: 'Reactivated 19K dormant users (8K → 31K, ~3.4×) via multi-channel notification engine' },
+  { ts: '2024-08', lvl: 'OK', msg: 'Reactivated dormant users (8K → 31K, ~3.4×) via multi-channel notification engine' },
   { ts: '2024-09', lvl: 'OK', msg: 'Cut webhook partner failure rate 80% - BullMQ retry queues + dead-letter + cron reconciliation' },
   { ts: '2024-10', lvl: 'OK', msg: 'Reduced API p95 latency 40% across 12+ endpoints - composite indexing + cursor pagination + Redis' },
   { ts: '2024-11', lvl: 'OK', msg: 'Built evital-sso npm module - 4K+ monthly requests, adopted by 3 external integrators' },

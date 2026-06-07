@@ -127,6 +127,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    margin-bottom: 20px;
   }
 
   &__tag {
@@ -141,6 +142,55 @@
     &:hover {
       border-color: var(--border2);
       color: var(--blue);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-top: 4px;
+    border-top: 1px solid var(--border);
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.18s;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &--primary {
+      background: rgba(77, 166, 255, 0.15);
+      border: 1px solid rgba(77, 166, 255, 0.4);
+      color: var(--blue);
+
+      &:hover {
+        background: rgba(77, 166, 255, 0.25);
+        border-color: rgba(77, 166, 255, 0.7);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(77, 166, 255, 0.2);
+      }
+    }
+
+    &--ghost {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text2);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--border2);
+        color: var(--text);
+        transform: translateY(-1px);
+      }
     }
   }
 }

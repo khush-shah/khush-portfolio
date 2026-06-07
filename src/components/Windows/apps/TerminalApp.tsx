@@ -60,10 +60,22 @@ export default function TerminalApp({ openApp }: { openApp: (id: string) => void
 
     if (cmd === 'whoami') {
       print([
-        { text: 'Khush Shah', color: '#e2efff' },
-        { text: 'uid=1000(khush)  gid=engineers  shell=/bin/nodejs', color: '#566a85' },
-        { text: 'role=SDE-1  company=Equality Healthcare  city=Ahmedabad', color: '#566a85' },
-        { text: 'status=● available_for_opportunities', color: '#3dff7a' },
+        { text: '┌─ identity ────────────────────────────────────────┐', color: '#4da6ff' },
+        { text: '│  Khush Shah                                       │', color: '#e2efff' },
+        { text: '│  uid=1000(khush)  gid=engineers  shell=/bin/nodejs│', color: '#566a85' },
+        { text: '│  role=SDE-1  · ~2 years production experience     │', color: '#566a85' },
+        { text: '│  company=Equality Healthcare  city=Ahmedabad      │', color: '#566a85' },
+        { text: '├─ contact ─────────────────────────────────────────┤', color: '#4da6ff' },
+        { text: '│  ✉  kshah17121@gmail.com                          │', color: '#bccfe8' },
+        { text: '│  🔗 linkedin.com/in/khush-shah-j172               │', color: '#bccfe8' },
+        { text: '│  🐙 github.com/khush-shah                         │', color: '#bccfe8' },
+        { text: '│  📦 npmjs.com/package/evital-sso                  │', color: '#bccfe8' },
+        { text: '├─ stack ───────────────────────────────────────────┤', color: '#4da6ff' },
+        { text: '│  Node.js · PostgreSQL · Redis · BullMQ · Angular  │', color: '#566a85' },
+        { text: '│  TypeScript · Socket.io · GCP · Docker            │', color: '#566a85' },
+        { text: '├─ status ──────────────────────────────────────────┤', color: '#4da6ff' },
+        { text: '│  ● open_to_opportunities                          │', color: '#3dff7a' },
+        { text: '└───────────────────────────────────────────────────┘', color: '#4da6ff' },
       ]); return;
     }
 

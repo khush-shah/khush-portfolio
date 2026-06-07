@@ -65,7 +65,7 @@ export default function Window({ win, children, onClose, onMinimize, onMaximize,
     window.addEventListener('mouseup', onMouseUp);
   }, [win.id, win.w, win.h, onResize]);
 
-  if (win.minimized) return null;
+  // if (win.minimized) return null;
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   useEffect(() => {
@@ -73,7 +73,15 @@ export default function Window({ win, children, onClose, onMinimize, onMaximize,
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
-  const style: React.CSSProperties = (win.maximized || isMobile) ? {
+  const style: React.CSSProperties = win.minimized ? {
+    position: 'fixed',
+    visibility: 'hidden',
+    pointerEvents: 'none',
+    opacity: 0,
+    left: win.x, top: win.y,
+    width: win.w, height: win.h,
+    zIndex: -1,
+  } : (win.maximized || isMobile) ? {
     position: 'fixed', left: 0, top: 0,
     width: '100vw', height: 'calc(100vh - 48px)',
     zIndex: win.z, borderRadius: 0,
