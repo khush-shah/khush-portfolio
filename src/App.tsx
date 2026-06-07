@@ -94,8 +94,13 @@ export default function App() {
         os.setMetricModalKey(null);
         setMatrixMode(false);
         setHackMode(false);
-        // wake screensaver on ESC too
         if (screensaverRef.current && !ssStaticRef.current) { screensaverRef.current = false; setScreensaver(false); }
+      }
+      if (e.key === 'F12' && screensaverRef.current && ssStaticRef.current) {
+        ssStaticRef.current = false;
+        setSsStatic(false);
+        screensaverRef.current = false;
+        setScreensaver(false);
       }
     };
     window.addEventListener('keydown', handler);

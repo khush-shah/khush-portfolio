@@ -73,7 +73,10 @@ function ClockScreensaver({ onWake, isStatic }: { onWake: () => void; isStatic: 
         <div className="screensaver__time">{time}</div>
         <div className="screensaver__date">{date}</div>
         <div className="screensaver__name">Khush Shah &nbsp;·&nbsp; KhushOS</div>
-        {!isStatic && <div className="screensaver__hint">Click or press any key to wake</div>}
+        {isStatic
+          ? <div className="screensaver__hint">Static mode · Press F12 to exit</div>
+          : <div className="screensaver__hint">Click or press any key to wake</div>
+        }
       </div>
     </div>
   );
